@@ -6,7 +6,7 @@ EXPOSE 8080
 WORKDIR /
 
 # Copy the JAR file into the container
-COPY target/*.jar redisapp.jar
+COPY /*.jar redisapp.jar
 
 # Command to execute when the container starts
 CMD ["java", "-jar", "redisapp.jar"]
