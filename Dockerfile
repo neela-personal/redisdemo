@@ -10,4 +10,3 @@ COPY /*.jar redisapp.jar
 
 # Command to execute when the container starts
 CMD ["java", "-jar", "redisapp.jar"]
-ENTRYPOINT exec java -jar /redisapp.jar
