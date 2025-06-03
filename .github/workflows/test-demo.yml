@@ -1,0 +1,21 @@
+name: my input test demo
+on:
+  workflow_dispatch:
+    inputs:
+      name:
+        description: 'Enter your name'
+        required: true
+        default: 'Neela'
+      age:
+        description: 'Enter your age'
+        required: true
+        default: '30'
+jobs:
+    test-input:
+        runs-on: ubuntu-latest
+        steps:
+        - run: echo "Hello, ${{ github.event.inputs.name }}! You are ${{ github.event.inputs.age }} years old."
+        - run: echo "This is a test of the workflow_dispatch event with inputs."
+        - run: echo "The workflow was triggered by ${{ github.actor }}."
+        - run: echo "The event name is ${{ github.event_name }}."
+        - run: echo "The repository is ${{ github.repository }}."
