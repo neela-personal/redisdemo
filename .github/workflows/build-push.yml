@@ -15,14 +15,14 @@ jobs:
       - name: Setup JFrog CLI
         uses: jfrog/setup-jfrog-cli@v4
         env:
-          JF_URL: ${{ vars.JF_URL }}
+          JF_URL: ${{ secrets.JF_URL }}
           JF_ACCESS_TOKEN: ${{ secrets.JF_ACCESS_TOKEN }}
-          run: echo "JF_URL ${{ vars.JF_URL }}"
 
       - name: Build Tag and push Docker Image
         env:
           IMAGE_NAME: neela.jfrog.io/test-docker/jfrog-docker-example-image:${{ github.run_number }}
         run: |
+          jf docker scan
           jf docker build -t $IMAGE_NAME .
           echo "build done"
           jf docker push $IMAGE_NAME
