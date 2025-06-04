@@ -23,7 +23,9 @@ jobs:
           IMAGE_NAME: neela.jfrog.io/test-docker/jfrog-docker-example-image:${{ github.run_number }}
         run: |
           jf docker build -t $IMAGE_NAME .
+          echo "build done"
           jf docker push $IMAGE_NAME
+          echo "build and push done"
 
 #      - name: Publish Build info With JFrog CLI
 #        env:
