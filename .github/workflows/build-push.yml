@@ -20,7 +20,7 @@ jobs:
           project_id: "deep-dynamics-460610-u8"
 
       - name: Authorize Docker Push
-        run: gcloud auth configure-docker europe-west1-docker.pkg.dev
+        run: gcloud auth configure-docker
 
       - name: Checkout code
         uses: actions/checkout@v2
