@@ -20,7 +20,7 @@ jobs:
           project_id: "deep-dynamics-460610-u8"
 
       - name: Authorize Docker Push
-        run: gcloud auth configure-docker
+        run: gcloud auth configure-docker europe-west1-docker.pkg.dev
 
       - name: Checkout code
         uses: actions/checkout@v2
@@ -36,8 +36,6 @@ jobs:
           #IMAGE_NAME: neela.jfrog.io/test-docker/jfrog-docker-example-image:${{ github.run_number }}
           IMAGE_NAME: europe-west1-docker.pkg.dev/deep-dynamics-460610-u8/test-docker-cloudrun:${{ github.run_number }}
         run: |
-          gcloud auth login
-          gcloud auth configure-docker europe-west1-docker.pkg.dev
           docker build -t $IMAGE_NAME .
           echo "build done"
           docker push $IMAGE_NAME
