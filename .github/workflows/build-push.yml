@@ -16,9 +16,8 @@ jobs:
           credentials_json: ${{ secrets.GCP_SA_TOKEN_FILE }}
       - name: Setup Cloud SDK
         uses: google-github-actions/setup-gcloud@v2.1.0
-
         with:
-          project_id: "My First Project"
+          project_id: "deep-dynamics-460610-u8"
 
       - name: Authorize Docker Push
         run: gcloud auth configure-docker
