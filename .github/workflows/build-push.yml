@@ -9,6 +9,20 @@ jobs:
   build-and-tag:
     runs-on: ubuntu-latest
     steps:
+      - id: "auth"
+        name: GCP Authentication
+        uses: "google-github-actions/auth@v2"
+        with:
+          credentials_json: ${{ secrets.GCP_SA_TOKEN_FILE }}
+      - name: Setup Cloud SDK
+        uses: google-github-actions/setup-gcloud@v2.1.0
+
+        with:
+          project_id: "My First Project"
+
+      - name: Authorize Docker Push
+        run: gcloud auth configure-docker
+
       - name: Checkout code
         uses: actions/checkout@v2
 
@@ -22,10 +36,9 @@ jobs:
         env:
           IMAGE_NAME: neela.jfrog.io/test-docker/jfrog-docker-example-image:${{ github.run_number }}
         run: |
-          jf docker scan
-          jf docker build -t $IMAGE_NAME .
+          docker build -t $IMAGE_NAME .
           echo "build done"
-          jf docker push $IMAGE_NAME
+          docker push $IMAGE_NAME
           echo "build and push done"
 
 #      - name: Publish Build info With JFrog CLI
