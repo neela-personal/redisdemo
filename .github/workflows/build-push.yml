@@ -37,7 +37,7 @@ jobs:
           IMAGE_NAME: europe-west1-docker.pkg.dev/deep-dynamics-460610-u8/test-docker-cloudrun:${{ github.run_number }}
         run: |
           docker build -t $IMAGE_NAME .
-          echo "build done"
+          echo "build done test"
           docker push $IMAGE_NAME
           echo "build and push done"
 
