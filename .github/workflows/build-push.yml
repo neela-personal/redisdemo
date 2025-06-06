@@ -19,6 +19,9 @@ jobs:
         with:
           project_id: "deep-dynamics-460610-u8"
 
+      - name: List files in workspace
+        run: ls -R
+
       - name: Upload file to GCS
         run: |
           gsutil cp README.md gs://test-neela-bucket/myfolder/
