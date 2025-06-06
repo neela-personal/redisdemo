@@ -59,6 +59,12 @@ jobs:
           docker push $IMAGE_NAME
           echo "build and push done"
 
+      - name: Deploy to Cloud Run
+        uses: google-github-actions/deploy-cloudrun@v2
+        with:
+          service: redisdemo-cloudrun
+          image: europe-west1-docker.pkg.dev/my-project/redisdemo/${{ github.run_number }}
+          region: europe-west1
 #      - name: Publish Build info With JFrog CLI
 #        env:
 #          # Generated and maintained by GitHub
