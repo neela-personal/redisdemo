@@ -21,7 +21,7 @@ jobs:
 
       - name: Upload file to GCS
         run: |
-          gsutil cp src/main/resources/file2.txt gs://test-neela-bucket/myfolder/
+          gsutil cp README.md gs://test-neela-bucket/myfolder/
 
       - name: Authorize Docker Push
         run: gcloud auth configure-docker
