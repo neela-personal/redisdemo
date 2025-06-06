@@ -20,7 +20,7 @@ jobs:
           project_id: "deep-dynamics-460610-u8"
 
       - name: List files in workspace
-        run: ls -R
+        run: pwd
 
       - name: Upload file to GCS
         run: |
