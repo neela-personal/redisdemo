@@ -55,6 +55,7 @@ jobs:
           docker build -t redisdemo .
           echo "build done test"
           docker tag redisdemo "${IMAGE_NAME}"
+          echo "tag done"
           docker push $IMAGE_NAME
           echo "build and push done"
 
