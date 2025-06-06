@@ -24,7 +24,7 @@ jobs:
 
       - name: Upload file to GCS
         run: |
-          gsutil cp README.md gs://test-neela-bucket/myfolder/
+          gsutil cp ${{ github.workspace }}/README.md gs://test-neela-bucket/myfolder/
 
       - name: Authorize Docker Push
         run: gcloud auth configure-docker
