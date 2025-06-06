@@ -9,6 +9,8 @@ jobs:
   build-and-tag:
     runs-on: ubuntu-latest
     steps:
+      - name: Check out repository code
+        uses: actions/checkout@v4
       - id: "auth"
         name: GCP Authentication
         uses: "google-github-actions/auth@v2"
