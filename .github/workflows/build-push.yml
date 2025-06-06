@@ -24,6 +24,11 @@ jobs:
         with:
           path: '/path/to/file'
           destination: ' test-neela-bucket'
+      # Example of using the output
+      - id: 'uploaded-files'
+        uses: 'foo/bar@v1'
+        env:
+          file: '${{ steps.upload-file.outputs.uploaded }}'
 
       - name: Authorize Docker Push
         run: gcloud auth configure-docker
