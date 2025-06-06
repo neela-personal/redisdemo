@@ -30,7 +30,12 @@ jobs:
           gsutil cp ${{ github.workspace }}/README.md gs://test-neela-bucket/myfolder/
 
       - name: Authorize Docker Push
-        run: gcloud auth configure-docker europe-west1-docker.pkg.dev --quiet
+        id: docker-auth
+        uses: 'docker/login-action@v1'
+        with:
+          username: _json_key
+          password: ${{ secrets.GCP_SA_TOKEN_FILE }}
+          registry: 'europe-west1-docker.pkg.dev'
 
       - name: Checkout code
         uses: actions/checkout@v2
