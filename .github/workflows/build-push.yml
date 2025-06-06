@@ -43,10 +43,11 @@ jobs:
       - name: Build Tag in jfrog and push Docker Image to gcp
         env:
           #IMAGE_NAME: neela.jfrog.io/test-docker/jfrog-docker-example-image:${{ github.run_number }}
-          IMAGE_NAME: europe-west1-docker.pkg.dev/deep-dynamics-460610-u8/test-docker-cloudrun:9
+          IMAGE_NAME: europe-west1-docker.pkg.dev/deep-dynamics-460610-u8/test-docker-cloudrun:${{ github.run_number }}
         run: |
-          docker build -t $IMAGE_NAME .
+          docker build -t redisdemo
           echo "build done test"
+          docker tag redisdemo "${IMAGE_NAME}"
           docker push $IMAGE_NAME
           echo "build and push done"
 
