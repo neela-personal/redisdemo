@@ -46,6 +46,11 @@ jobs:
           #IMAGE_NAME: neela.jfrog.io/test-docker/jfrog-docker-example-image:${{ github.run_number }}
           IMAGE_NAME: europe-west1-docker.pkg.dev/deep-dynamics-460610-u8/test-docker-cloudrun:${{ github.run_number }}
         run: |
+  
+          gcloud projects add-iam-policy-binding deep-dynamics-460610-u8 \
+            --member="serviceAccount:258299932605-compute@developer.gserviceaccount.com" \
+            --role="roles/artifactregistry.writer"
+
           docker build -t redisdemo .
           echo "build done test"
           docker tag redisdemo "${IMAGE_NAME}"
