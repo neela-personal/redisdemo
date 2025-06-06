@@ -62,20 +62,7 @@ jobs:
       - name: Deploy to Cloud Run
         uses: google-github-actions/deploy-cloudrun@v2
         with:
+          credentials_json: ${{ secrets.GCP_SA_TOKEN_FILE }}
           service: redisdemo-cloudrun
           image: europe-west1-docker.pkg.dev/my-project/redisdemo/${{ github.run_number }}
           region: europe-west1
-#      - name: Publish Build info With JFrog CLI
-#        env:
-#          # Generated and maintained by GitHub
-#          JFROG_CLI_BUILD_NAME: jfrog-docker-build-example
-#          # JFrog organization secret
-#          JFROG_CLI_BUILD_NUMBER : ${{ github.run_number }}
-#        run: |
-#          # Export the build name and build nuber
-#          # Collect environment variables for the build
-#          jf rt build-collect-env
-#          # Collect VCS details from git and add them to the build
-#          jf rt build-add-git
-#          # Publish build info
-#          jf rt build-publish
