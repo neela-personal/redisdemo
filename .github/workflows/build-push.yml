@@ -59,7 +59,7 @@ jobs:
           docker push $IMAGE_NAME
           echo "build and push done"
 
-      - id: "auth"
+      - id: "auth1"
         name: GCP Authentication
         uses: "google-github-actions/auth@v2"
         with:
