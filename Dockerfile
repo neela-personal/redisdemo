@@ -5,7 +5,7 @@ FROM eclipse-temurin:17-jdk-focal
 WORKDIR /
 
 # Copy the JAR file into the container
-COPY target/redisapp-1.0-SNAPSHOT.jar redisapp.jar
+COPY target/RedistTest-1.0-SNAPSHOT.jar redisapp.jar
 
 EXPOSE 8080
 
