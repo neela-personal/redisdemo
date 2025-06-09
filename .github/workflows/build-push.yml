@@ -65,4 +65,4 @@ jobs:
           credentials_json: ${{ secrets.GCP_SA_TOKEN_FILE }}
           service: redisdemo-cloudrun
           region: europe-west1
-          image: europe-west1-docker.pkg.dev/my-project/redisdemo/${{ github.run_number }}
+          image: europe-west1-docker.pkg.dev/deep-dynamics-460610-u8/test-docker-cloudrun/${{ github.run_number }}
