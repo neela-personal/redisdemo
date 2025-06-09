@@ -70,4 +70,4 @@ jobs:
         with:
           service: redisdemo-cloudrun
           region: europe-west1
-          image: europe-west1-docker.pkg.dev/deep-dynamics-460610-u8/test-docker-cloudrun/${{ github.run_number }}
+          image: europe-west1-docker.pkg.dev/deep-dynamics-460610-u8/test-docker-cloudrun/42
