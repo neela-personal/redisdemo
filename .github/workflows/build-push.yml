@@ -58,6 +58,7 @@ jobs:
           echo "tag done"
           docker push $IMAGE_NAME
           echo "build and push done"
+          ls ${{ github.workspace }}
 
       - id: "auth1"
         name: GCP Authentication
