@@ -59,10 +59,15 @@ jobs:
           docker push $IMAGE_NAME
           echo "build and push done"
 
+      - id: "auth"
+        name: GCP Authentication
+        uses: "google-github-actions/auth@v2"
+        with:
+          credentials_json: ${{ secrets.GCP_SA_TOKEN_FILE }}
+
       - name: Deploy to Cloud Run
         uses: google-github-actions/deploy-cloudrun@v2
         with:
-          #credentials_json: ${{ secrets.GCP_SA_TOKEN_FILE }}
           service: redisdemo-cloudrun
           region: europe-west1
           image: europe-west1-docker.pkg.dev/deep-dynamics-460610-u8/test-docker-cloudrun/${{ github.run_number }}
