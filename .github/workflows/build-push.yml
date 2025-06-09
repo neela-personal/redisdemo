@@ -62,7 +62,7 @@ jobs:
       - name: Deploy to Cloud Run
         uses: google-github-actions/deploy-cloudrun@v2
         with:
-          credentials_json: ${{ secrets.GCP_SA_TOKEN_FILE }}
+          #credentials_json: ${{ secrets.GCP_SA_TOKEN_FILE }}
           service: redisdemo-cloudrun
-          image: europe-west1-docker.pkg.dev/my-project/redisdemo/${{ github.run_number }}
           region: europe-west1
+          image: europe-west1-docker.pkg.dev/my-project/redisdemo/${{ github.run_number }}
