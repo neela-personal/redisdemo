@@ -2,10 +2,10 @@
 FROM eclipse-temurin:17-jdk-focal
 
 # Open port 8080 from docker image where springboot server is running
-WORKDIR /app
+WORKDIR /
 
 # Copy the JAR file into the container
-COPY redisapp.jar .
+COPY target/redisapp-1.0-SNAPSHOT.jar redisapp.jar
 
 EXPOSE 8080
 
