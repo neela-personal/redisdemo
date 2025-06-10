@@ -1,10 +1,11 @@
 package com.ingka.fli.common.gcp;
 
 import javax.annotation.PreDestroy;
+import lombok.extern.slf4j.Slf4j;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 import redis.clients.jedis.JedisPoolConfig;
-
+@Slf4j
 public class GcpRedisConnector {
 
 
@@ -13,6 +14,9 @@ public class GcpRedisConnector {
   private JedisPool jedisPool;
 
   public GcpRedisConnector(RedisProperties properties) {
+    log.info("info log");
+    log.debug("debug log");
+    System.out.println("innnnnnnnnnnnnn");
     this.properties = properties;
     System.out.println("coming inside the redisconnector");
 
