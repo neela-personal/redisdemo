@@ -1,9 +1,7 @@
 package com.ingka.fli.common.gcp;
 
 import java.time.LocalDate;
-import lombok.extern.slf4j.Slf4j;
 
-@Slf4j
 public class LocalTest {
 
   public static void main(String[] args)  {
@@ -22,20 +20,20 @@ public class LocalTest {
 
     //retrieve available keys and values
     for (String key : RedisUtils.retreiveAllKeys()) {
-      log.info(key+"--  "+RedisUtils.getData(key));
+      System.out.println(key+"--  "+RedisUtils.getData(key));
     }
     //delete a key
     RedisUtils.deleteData("testKey2");
     //retrieve available keys and values after a key deletion
     for (String key : RedisUtils.retreiveAllKeys()) {
-      log.info(key+"--  "+RedisUtils.getData(key));
+      System.out.println(key+"--  "+RedisUtils.getData(key));
     }
     //updating an already existing key
     RedisUtils.saveOrUpdateData("testKey1","neelasree");
     //print the above keys value
-    log.info(RedisUtils.getData("testKey1"));
+    System.out.println(RedisUtils.getData("testKey1"));
     //trying to get a unavailable key
-    log.info(RedisUtils.getData("nokey"));
+    System.out.println(RedisUtils.getData("nokey"));
 
 
   }
