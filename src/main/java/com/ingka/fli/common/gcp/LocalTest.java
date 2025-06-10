@@ -6,6 +6,8 @@ public class LocalTest {
 
   public static void main(String[] args)  {
     System.out.println("Hello, World!");
+    System.out.println("Hello, World!111111");
+
     GcpRedisConnector con = new GcpRedisConnector(new RedisProperties("10.92.137.163", 6379, 3600, 10));
     IntegrationProperties intProperties = new IntegrationProperties("resource", "Sync Stock Adjustment Default",  "FUI_FUI_00017_LOAD",
         "1.0",  "IIP",  "3",  "sendingSystem");
