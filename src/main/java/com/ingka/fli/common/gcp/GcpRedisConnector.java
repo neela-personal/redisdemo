@@ -14,6 +14,7 @@ public class GcpRedisConnector {
 
   public GcpRedisConnector(RedisProperties properties) {
     this.properties = properties;
+    System.out.println("coming inside the redisconnector");
 
     JedisPoolConfig poolConfig = new JedisPoolConfig();
     poolConfig.setMaxTotal(128); // Maximum number of connections in the pool
