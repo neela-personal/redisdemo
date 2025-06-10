@@ -7,11 +7,12 @@ import redis.clients.jedis.Jedis;
 @RequiredArgsConstructor
 public class RedisManager {
 
-  private final GcpRedisConnector redisConnector;
+  private final Jedis redisConnector;
+  private final RedisProperties properties;
   private final IntegrationProperties integrationProperties;
 
   public Jedis getJedis() {
-    return redisConnector.getJedis();
+    return redisConnector;
   }
   public String getRetryCountFromCache(String cacheKey) {
     String ctr = "1";
@@ -20,7 +21,7 @@ public class RedisManager {
       getJedis().incr(cacheKey);
     } else {
       getJedis().set(cacheKey, ctr);
-      getJedis().expire(cacheKey, redisConnector.getProperties().getKeyExpiration());
+      getJedis().expire(cacheKey, properties.getKeyExpiration());
     }
 
     return getJedis().get(cacheKey);
