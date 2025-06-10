@@ -15,9 +15,20 @@
   </properties>
 <dependencies>
   <dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-data-redis</artifactId>
+    <version>3.5.0</version>
+    <exclusions>
+      <exclusion>
+        <groupId>io.lettuce</groupId>
+        <artifactId>lettuce-core</artifactId>
+      </exclusion>
+    </exclusions>
+  </dependency>
+  <dependency>
     <groupId>redis.clients</groupId>
     <artifactId>jedis</artifactId>
-    <version>6.0.0</version>
+    <version>3.6.0</version>
   </dependency>
   <dependency>
     <groupId>org.projectlombok</groupId>
@@ -51,11 +62,7 @@
     <version>6.2.3</version>
   </dependency>
 
-  <dependency>
-    <groupId>org.apache.commons</groupId>
-     <artifactId>commons-pool2</artifactId>
-    <version>2.11.1</version> <!-- or latest -->
-  </dependency>
+
 
 </dependencies>
 
