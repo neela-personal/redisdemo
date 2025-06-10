@@ -19,7 +19,10 @@ public class GcpRedisConnector {
     poolConfig.setMaxTotal(128); // Maximum number of connections in the pool
     poolConfig.setTestOnBorrow(true);
     poolConfig.setTestOnReturn(true);
+    System.out.println("object for jedispool");
+
     jedisPool = new JedisPool(poolConfig, properties.getHost(), properties.getPort());
+    System.out.println("object for jedispool created");
 
   }
 
