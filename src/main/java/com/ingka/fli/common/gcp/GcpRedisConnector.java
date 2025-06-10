@@ -28,6 +28,7 @@ public class GcpRedisConnector {
     // Creating the connection pool
     // Getting a connection from the pool
     //try (Jedis jedis = jedisPool.getResource()) {
+    System.out.println("creating connection");
       Jedis jedis = jedisPool.getResource();
       this.jedis = jedis;
       String pong = jedis.ping();

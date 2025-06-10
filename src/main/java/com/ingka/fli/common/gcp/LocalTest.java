@@ -16,7 +16,7 @@ public class LocalTest {
     //RedisUtils.isRetryExhausted("1234567890", String.valueOf(LocalDate.now()));
     //  properties = new RedisProperties("localhost", 6379, 3600, 10);
 
-
+    System.out.println("accesing the redis ..");
     RedisUtils.saveOrUpdateData("testKey1","neela");
     RedisUtils.saveOrUpdateData("testKey2", "neela2");
 
