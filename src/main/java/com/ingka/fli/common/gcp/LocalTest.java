@@ -1,6 +1,7 @@
 package com.ingka.fli.common.gcp;
 
 import java.time.LocalDate;
+import org.apache.commons.pool2.impl.GenericObjectPoolConfig;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 import redis.clients.jedis.JedisPoolConfig;
@@ -13,7 +14,8 @@ public class LocalTest {
     System.out.println("before object for jedispool");
 
 
-    JedisPoolConfig poolConfig = new JedisPoolConfig();
+
+   GenericObjectPoolConfig<Jedis> poolConfig = new GenericObjectPoolConfig<>();
     poolConfig.setMaxTotal(128); // Maximum number of connections in the pool
     poolConfig.setTestOnBorrow(true);
     poolConfig.setTestOnReturn(true);
